@@ -16,6 +16,7 @@ postgres = ['psycopg2>=2.7, <2.7.99'] + sql
 redshift = ['sqlalchemy-redshift>=0.7, <0.7.99'] + sql
 redis = ['redis>=2.10, <2.10.99']
 s3 = ['boto3>=1.4, <1.4.99']
+geoip = ['geoip2']
 
 keras = [
     'Keras>=2.0.9, <2.1.99',
@@ -29,7 +30,7 @@ keras = [
 xgboost = ['xgboost>=0.6a2, <0.6.99']
 scikit = ['scikit-learn>=0.19, <0.19.99']
 
-all = list(set(keras + xgboost + scikit + postgres + redshift + redis + s3))
+all = list(set(keras + xgboost + scikit + postgres + redshift + redis + s3 + geoip))
 devel = all + ['moto>=1.1, <1.1.99', 'sphinx', 'sphinx-autobuild', 'sphinx_rtd_theme']
 
 setup(
@@ -94,6 +95,7 @@ setup(
         's3': s3,
         'scikit': scikit,
         'xgboost': xgboost + scikit,
+        'geoip': geoip,
     },
     zip_safe=True,
     test_suite='tests',
